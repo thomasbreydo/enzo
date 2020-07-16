@@ -11,3 +11,11 @@ def relu(n):
 def sigmoid(n):
     '''Return 1 / (1 + e ^ -n).'''
     return 1 / (1 + np.exp(-n))
+
+
+def noactivation(x):
+    return x
+
+
+def softmax():
+    pass  # TODO

@@ -1,5 +1,6 @@
 import pytest
 import enzo.activation as act
+import numpy as np
 
 
 def test_positive_relu():
@@ -24,3 +25,8 @@ def test_negative_sigmoid():
 
 def test_zero_sigmoid():
     assert act.sigmoid(0) == pytest.approx(0.5)
+
+
+def test_noactivation():
+    random_arr = np.random.randn(5, 9)
+    assert (act.noactivation(random_arr) == random_arr).all()

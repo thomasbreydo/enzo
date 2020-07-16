@@ -1,5 +1,7 @@
 enzo
 ====
+.. image:: https://travis-ci.com/thomasbreydo/enzo.svg?branch=master
+    :target: https://travis-ci.com/thomasbreydo/enzo
 A neural network designed from scratch in Python (no tensorflow, pytorch, etc.).
 
 Why from scratch?

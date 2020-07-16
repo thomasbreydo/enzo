@@ -2,4 +2,6 @@ import numpy as np
 
 
 class Neuron:
-    pass
+    def __init__(self, weights=None, bias=None):
+        self.weights = weights
+        self.bias = bias

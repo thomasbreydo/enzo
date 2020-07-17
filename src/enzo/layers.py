@@ -19,3 +19,7 @@ class DenseLayer:
     def __init__(self, units, weights=None, bias=None, activation=None):
         self.neurons = [Neuron(weights, bias, activation)
                         for _ in range(units)]
+
+    def forward(self, inputs):
+        return [neuron.process(inputs[i])
+                for i, neuron in enumerate(self.neurons)]

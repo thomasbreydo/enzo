@@ -19,7 +19,7 @@ class Neuron:
         try:
             pre_activation = inp @ self.weights + self.bias
         except TypeError:  # inp not np.array
-            pre_activation = np.array(inp) @ self.weights + self.bias
+            pre_activation = (np.array(inp) @ self.weights).item() + self.bias
         return self.activation(pre_activation)
 
 

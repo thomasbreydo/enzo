@@ -13,7 +13,7 @@ def test_init_neuron():
 def test_neuron_process_given_weights():
     inp = [0.2, 99, -5, 12]
     n = enzo.units.Neuron([[4.1], [0], [-2], [5]], bias=4)
-    assert n.process(inp) == 74.82
+    assert n.process(inp) == pytest.approx(74.82)
 
 
 def patched_randn(*args):

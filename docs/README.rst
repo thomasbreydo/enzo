@@ -2,6 +2,10 @@ enzo
 ====
 .. image:: https://travis-ci.com/thomasbreydo/enzo.svg?branch=master
     :target: https://travis-ci.com/thomasbreydo/enzo
+.. image:: https://readthedocs.org/projects/enzo-docs/badge/?version=latest
+    :target: https://enzo-docs.readthedocs.io/en/latest/?badge=latest
+    :alt: Documentation Status
+
 A neural network designed from scratch in Python (no tensorflow, pytorch, etc.).
 
 Why from scratch?

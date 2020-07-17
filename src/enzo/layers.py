@@ -1,23 +1,21 @@
-import numpy as np
-from . import activation as act
+from .units import Neuron
 
 
-class Neuron:
-    def __init__(self, weights=None, bias=None, activation=None):
-        self.weights = weights
-        self.bias = bias
-        if activation is None:
-            self.activation = act.noactivation
-        else:
-            self.activation = activation
+class DenseLayer:
+    '''TODO: add desc
 
-    def process(self, inp):
-        if self.weights is None:
-            self.weights = np.random.randn(1, len(inp))
-        if self.bias is None:
-            self.bias = np.random.randn()
-        try:
-            pre_activation = inp @ self.weights + self.bias
-        except TypeError:  # inp not np.array
-            pre_activation = np.array(inp) @ self.weights + self.bias
-        return self.activation(pre_activation)
+    Parameters
+    ----------
+    units : int
+        The number of `class:Neuron` instances to add to this layer.
+    weights : list of numeric
+        The initial list of weights for all neurons.
+    bias : numeric
+        The initial bias for all neurons.
+    activation : callable
+        The activation function for this layer.
+    '''
+
+    def __init__(self, units, weights=None, bias=None, activation=None):
+        self.neurons = [Neuron(weights, bias, activation)
+                        for _ in range(units)]

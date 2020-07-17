@@ -6,6 +6,12 @@ Units
 .. autoclass:: enzo.units.Perceptron
     :members:
 
+Layers
+~~~~~~
+
+.. autoclass:: enzo.layers.DenseLayer
+    :members:
+
 .. DOT Representation
 .. ~~~~~~~~~~~~~~~~~~
 .. .. autofunction:: enzo.dotgraph

@@ -1,3 +1,8 @@
 from setuptools import setup
 
-setup()  # Metadata in setup.cfg
+# Metadata in setup.cfg
+setup(
+    install_requires=[
+        'numpy==1.19.0',
+    ]
+)

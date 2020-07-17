@@ -21,5 +21,5 @@ class DenseLayer:
                         for _ in range(units)]
 
     def forward(self, inputs):
-        return [neuron.process(inputs[i])
-                for i, neuron in enumerate(self.neurons)]
+        return [[neuron.process(inp) for neuron in self.neurons]
+                for inp in inputs]

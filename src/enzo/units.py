@@ -13,11 +13,11 @@ class Neuron:
 
     def process(self, inp):
         if self.weights is None:
-            self.weights = np.random.randn(1, len(inp))
+            self.weights = np.random.randn(len(inp), 1)
         if self.bias is None:
             self.bias = np.random.randn()
         try:
-            pre_activation = inp @ self.weights + self.bias
+            pre_activation = (inp @ self.weights).item() + self.bias
         except TypeError:  # inp not np.array
             pre_activation = (np.array(inp) @ self.weights).item() + self.bias
         return self.activation(pre_activation)

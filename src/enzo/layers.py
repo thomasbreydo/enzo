@@ -6,7 +6,7 @@ class DenseLayer:
 
     Parameters
     ----------
-    units : int
+    n_units : int
         The number of `class:Neuron` instances to add to this layer.
     weights : list of numeric
         The initial list of weights for all neurons.
@@ -16,9 +16,9 @@ class DenseLayer:
         The activation function for this layer.
     '''
 
-    def __init__(self, units, weights=None, bias=None, activation=None):
+    def __init__(self, n_units, weights=None, bias=None, activation=None):
         self.neurons = [Neuron(weights, bias, activation)
-                        for _ in range(units)]
+                        for _ in range(n_units)]
 
     def forward(self, inputs):
         return [[neuron.process(inp) for neuron in self.neurons]

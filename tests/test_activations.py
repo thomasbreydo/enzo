@@ -1,5 +1,5 @@
 import pytest
-import enzo.activation as act
+import enzo.activations as act
 import numpy as np
 
 

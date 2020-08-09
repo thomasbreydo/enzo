@@ -1,15 +1,21 @@
-Units
-~~~~~
+.. Units
+.. ~~~~~
 
-.. autoclass:: enzo.units.Neuron
-    :members:
-.. autoclass:: enzo.units.Perceptron
-    :members:
+.. .. autoclass:: enzo.units.Neuron
+..     :members:
+.. .. autoclass:: enzo.units.Perceptron
+..     :members:
 
 Layers
 ~~~~~~
 
-.. autoclass:: enzo.layers.DenseLayer
+.. automodule:: enzo.layers
+    :members:
+
+Activation Functions
+~~~~~~~~~~~~~~~~~~~~
+
+.. automodule:: enzo.activations
     :members:
 
 .. DOT Representation

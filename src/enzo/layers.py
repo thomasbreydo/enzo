@@ -41,6 +41,9 @@ class DenseLayer:
         return np.append(samples, np.ones(n_samples).reshape(n_samples, 1), axis=1)
 
     def forward(self, samples):
+        """Return and store in ``self.outputs`` the activation matrix of this layer
+            after forward propagation.
+        """
         pre_actiation_func = DenseLayer._append_column_of_ones(samples) @ self.weights
         self.outputs = self.activation(pre_actiation_func)
         return self.outputs

@@ -10,6 +10,12 @@ def _relu(n):
 
 
 def relu(matrix):
+    """Apply max(0, n) to each n in ``matrix``.
+
+    Parameters
+    ----------
+    matrix : `list` of `list`
+    """
     return _relu(matrix)
 
 
@@ -20,12 +26,19 @@ def _sigmoid(n):
 
 
 def sigmoid(matrix):
+    """Apply 1 / (1 + e ^ -n) to each n in ``matrix``.
+
+    Parameters
+    ----------
+    matrix : `list` of `list`
+    """
     return _sigmoid(matrix)
 
 
 def noactivation(matrix):
+    """Do nothing, return ``matrix``."""
     return matrix
 
 
 def softmax():
-    pass  # TODO
+    """TODO"""

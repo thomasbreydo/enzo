@@ -1,3 +1,5 @@
+"""Layers for sequential models"""
+
 import numpy as np
 from . import activations
 

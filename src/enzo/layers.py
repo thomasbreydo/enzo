@@ -40,7 +40,7 @@ class DenseLayer:
         This allows for the bias to be taken into account.
         """
         n_samples = len(samples)
-        return np.append(samples, np.ones(n_samples).reshape(n_samples, 1), axis=1)
+        return np.append(samples, np.ones((n_samples, 1)), axis=1)
 
     def forward(self, samples):
         """Return and store in ``self.outputs`` the activation matrix of this layer

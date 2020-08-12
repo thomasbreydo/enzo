@@ -10,7 +10,7 @@ def _relu(n):
 
 
 def relu(matrix):
-    """Apply max(0, n) to each n in ``matrix``.
+    """Apply max(0, n) to each n in `matrix`.
 
     Parameters
     ----------
@@ -26,7 +26,7 @@ def _sigmoid(n):
 
 
 def sigmoid(matrix):
-    """Apply 1 / (1 + e ^ -n) to each n in ``matrix``.
+    """Apply 1 / (1 + e ^ -n) to each n in `matrix`.
 
     Parameters
     ----------
@@ -36,7 +36,7 @@ def sigmoid(matrix):
 
 
 def noactivation(matrix):
-    """Do nothing, return ``matrix``."""
+    """Do nothing, return `matrix`."""
     return matrix
 
 

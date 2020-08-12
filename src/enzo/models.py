@@ -5,6 +5,7 @@ from .exceptions import LayerBuildingError
 
 class Model:
     """Simple densely connected neural network model.
+    
     Parameters
     ----------
     layers : list of :class:`enzo.layers.Layer`

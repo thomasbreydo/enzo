@@ -2,6 +2,7 @@
 from . import activations
 from . import layers
 from . import exceptions
+from . import models
 
 # from . import units
 

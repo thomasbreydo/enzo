@@ -2,10 +2,11 @@
     "restructuredtext.confPath": "${workspaceFolder}/docs",
     "python.pythonPath": "/Users/thomasbreydo/Desktop/Programming/Projects/enzo/venv/bin/python3",
     "python.formatting.provider": "black",
-    "python.linting.pylintArgs": ["--good-names=n,"],
+    "python.linting.pylintArgs": ["--good-names=n,i"],
     "python.linting.enabled": true,
     "python.linting.pylintEnabled": true,
     "python.testing.unittestEnabled": false,
     "python.testing.nosetestsEnabled": false,
-    "python.testing.pytestEnabled": true
+    "python.testing.pytestEnabled": true,
+    "files.trimFinalNewlines": true,
 }

@@ -1,10 +1,8 @@
-.. Units
-.. ~~~~~
+Models
+~~~~~~
 
-.. .. autoclass:: enzo.units.Neuron
-..     :members:
-.. .. autoclass:: enzo.units.Perceptron
-..     :members:
+.. automodule:: enzo.models
+    :members:
 
 Layers
 ~~~~~~
@@ -18,17 +16,8 @@ Activation Functions
 .. automodule:: enzo.activations
     :members:
 
-.. DOT Representation
-.. ~~~~~~~~~~~~~~~~~~
-.. .. autofunction:: enzo.dotgraph
-.. .. autofunction:: enzo.escape_dot_id
+Exceptions
+~~~~~~~~~~
 
-.. Path-finding
-.. ~~~~~~~~~~~~
-
-.. .. autoclass:: enzo.Path
-..     :members:
-.. .. autofunction:: enzo.memoize
-.. .. autofunction:: enzo.path_exists
-.. .. autofunction:: enzo.shortest_path
-.. .. autofunction:: enzo.shortest_path_through_network
+.. automodule:: enzo.exceptions
+    :members:

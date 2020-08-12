@@ -4,8 +4,9 @@
 class BackPropagationBeforeForwardException(Exception):
     """Raise when back-propagation is run before forward-propagation"""
 
-    pass
+
+red
 
 
 class LayerBuildingError(Exception):
-    """Should be raised when :func:`layers.Layer.build` fails."""
+    """Raise when :func:`layers.Layer.build` fails."""

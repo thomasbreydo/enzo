@@ -1,6 +1,7 @@
 """A neural network designed from scratch in Python (no tensorflow, pytorch, etc.)."""
 from . import activations
 from . import layers
+from . import exceptions
 
 # from . import units
 

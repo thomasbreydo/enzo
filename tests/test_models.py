@@ -27,11 +27,13 @@ MOCKED_RANDOM_WEIGHTS[(4, 2)] = [
 
 def test_model_forward(mock_np_random_rand):
     model = Model([DenseLayer(3, input_length=2), DenseLayer(2)])
-    model.forward([[0.89, 0.5], [-0.15, -0.97]])
-    np.testing.assert_allclose(model.outputs, [[0.53919, 0.09955], [1.1601, 0.4445]])
+    outputs = model.forward([[0.89, 0.5], [-0.15, -0.97]])
+    assert (outputs == model.outputs).all()
+    np.testing.assert_allclose(outputs, [[0.53919, 0.09955], [1.1601, 0.4445]])
 
 
 def test_model_forward_with_1d_samples(mock_np_random_rand):
     model = Model([DenseLayer(3, input_length=2), DenseLayer(2)])
-    model.forward([-0.15, -0.97])
+    outputs = model.forward([-0.15, -0.97])
+    assert (outputs == model.outputs).all()
     np.testing.assert_allclose(model.outputs, [[1.1601, 0.4445]])

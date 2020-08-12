@@ -5,7 +5,7 @@ from .exceptions import LayerBuildingError
 
 class Model:
     """Simple densely connected neural network model.
-    
+
     Parameters
     ----------
     layers : list of :class:`enzo.layers.Layer`
@@ -16,6 +16,19 @@ class Model:
     def __init__(self, layers):
         self.layers = layers
         self._build_layers()
+
+    def forward(self, samples):
+        self.layers[0].forward(samples)
+        for layer, previous_layer in self._iter_layers_and_previous():
+            layer.forward(previous_layer.outputs)
+        return self.outputs
+
+    @property
+    def outputs(self):
+        """list or ndarray : The activations of the final layer of this :class:`Model`
+            for the most recent samples
+        """
+        return self.layers[-1].outputs
 
     def _build_layers(self):
         self._build_first_layer()
@@ -32,12 +45,3 @@ class Model:
 
     def _iter_layers_and_previous(self):
         yield from zip(self.layers[1:], self.layers)
-
-    def forward(self, samples):
-        self.layers[0].forward(samples)
-        for layer, previous_layer in self._iter_layers_and_previous():
-            layer.forward(previous_layer.outputs)
-
-    @property
-    def outputs(self):
-        return self.layers[-1].outputs

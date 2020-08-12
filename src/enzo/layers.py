@@ -34,11 +34,11 @@ class DenseLayer(Layer):
     n_units : int
         The number of neurons in the layer.
     activation : callable, optional
-        The activation function for this layer. Default :func:`activations.relu`
+        The activation function for this layer. Default :func:`enzo.activations.relu`
     input_length : int
         The length of the vector of inputs this layer will receive. For hidden layers,
-        this should the number of units in the previous layer. Models such as
-        :class:`models.Sequential` automatically define `input_length` for all layers
+        this should the number of units in the previous layer.
+        :class:`enzo.models.Model` automatically defines `input_length` for all layers
         excluding the first.
 
     Notes

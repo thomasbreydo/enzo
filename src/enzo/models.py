@@ -18,6 +18,9 @@ class Model:
         self._build_layers()
 
     def forward(self, samples):
+        """Return and store in `self.outputs` the activation matrix of this layer
+            after forward propagation.
+        """
         self.layers[0].forward(samples)
         for layer, previous_layer in self._iter_layers_and_previous():
             layer.forward(previous_layer.outputs)

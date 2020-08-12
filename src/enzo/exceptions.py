@@ -6,4 +6,4 @@ class BackPropagationBeforeForwardException(Exception):
 
 
 class LayerBuildingError(Exception):
-    """Raise when :func:`layers.Layer.build` fails."""
+    """Should be raised when :func:`enzo.layers.DenseLayer.build` fails."""

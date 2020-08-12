@@ -19,9 +19,9 @@ class DenseLayer:
 
     Notes
     -----
-    The weights matrix (``self.weights``) has each column corresponding to one unit's
+    The weights matrix (`self.weights`) has each column corresponding to one unit's
     weights. This allows forward propagation with a matrix where each row is one sample
-    to be ``__matmul__``-ed with ``self.weights`` to generate activations.
+    to be `__matmul__`-ed with `self.weights` to generate activations.
     """
 
     def __init__(self, input_length, n_units, activation=None):
@@ -42,7 +42,7 @@ class DenseLayer:
         return np.append(samples, np.ones((len(samples), 1)), axis=1)
 
     def forward(self, samples):
-        """Return and store in ``self.outputs`` the activation matrix of this layer
+        """Return and store in `self.outputs` the activation matrix of this layer
             after forward propagation.
         """
         pre_actiation_func = DenseLayer._append_column_of_ones(samples) @ self.weights

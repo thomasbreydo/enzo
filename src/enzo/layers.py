@@ -27,15 +27,13 @@ class Layer(ABC):
 class DenseLayer(Layer):
     """A densely connected layer for neural networks.
 
-    TODO: allow implicit input_length, finish docs
-
     Parameters
     ----------
     n_units : int
         The number of neurons in the layer.
     activation : callable, optional
         The activation function for this layer. Default :func:`enzo.activations.relu`
-    input_length : int
+    input_length : int, optional
         The length of the vector of inputs this layer will receive. For hidden layers,
         this should the number of units in the previous layer.
         :class:`enzo.models.Model` automatically defines `input_length` for all layers

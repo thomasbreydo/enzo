@@ -40,5 +40,11 @@ def noactivation(matrix):
     return matrix
 
 
-def softmax():
-    """TODO"""
+def _softmax(row):
+    raised_to_the_e = np.exp(row)
+    return raised_to_the_e / sum(raised_to_the_e)
+
+
+def softmax(matrix):
+    """Perform softmax scaling for each row in `matrix`."""
+    return np.apply_along_axis(_softmax, 1, matrix)

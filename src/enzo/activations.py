@@ -3,12 +3,6 @@
 import numpy as np
 
 
-@np.vectorize
-def _relu(n):
-    """Return max(0, n)."""
-    return n if n > 0 else 0
-
-
 def relu(matrix):
     """Apply max(0, n) to each n in `matrix`.
 
@@ -16,13 +10,7 @@ def relu(matrix):
     ----------
     matrix : `list` of `list`
     """
-    return _relu(matrix)
-
-
-@np.vectorize
-def _sigmoid(n):
-    """Return 1 / (1 + e ^ -n)."""
-    return 1 / (1 + np.exp(-n))
+    return matrix * (matrix > 0)
 
 
 def sigmoid(matrix):
@@ -32,7 +20,7 @@ def sigmoid(matrix):
     ----------
     matrix : `list` of `list`
     """
-    return _sigmoid(matrix)
+    return 1 / (1 + np.exp(-matrix))
 
 
 def noactivation(matrix):

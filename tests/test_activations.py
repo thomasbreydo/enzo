@@ -30,3 +30,22 @@ def test_zero_sigmoid():
 def test_noactivation():
     random_arr = np.random.randn(5, 9)
     assert (act.noactivation(random_arr) == random_arr).all()
+
+
+def test_softmax():
+    after_softmax = act.softmax([[1, 2, 3, 4, 5], [-10, 4, 0, 2, 2]])
+    np.testing.assert_allclose(
+        after_softmax,
+        np.array(
+            [
+                [0.01165623, 0.03168492, 0.08612854, 0.23412166, 0.63640865],
+                [
+                    6.4510246829898e-07,
+                    0.77580299210163,
+                    0.014209327452133,
+                    0.10499351767189,
+                    0.10499351767189,
+                ],
+            ],
+        ),
+    )

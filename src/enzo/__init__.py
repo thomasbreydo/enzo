@@ -6,6 +6,6 @@ from . import exceptions
 from . import models
 from . import derivatives
 
-__version__ = "0.0.1.dev5"
+__version__ = "0.0.1.dev6"
 
 # TODO: pylint pyenchant --enable spelling check

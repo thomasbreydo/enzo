@@ -1,1 +1,4 @@
-"""Loss functions to calculate the cost of a model"""
+"""Loss functions."""
+
+import numpy as np
+

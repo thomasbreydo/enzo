@@ -1,3 +1,6 @@
+"""Docstring-related functions, such as tools for sphinx crosslinking."""
+
+
 def append_to_see_also(func, see_also_section):
     """Append `see_also_section` to the end of `func`'s docstring.
 

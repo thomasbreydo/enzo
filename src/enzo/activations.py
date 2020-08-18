@@ -1,4 +1,4 @@
-"""Activation functions"""
+"""Activation functions."""
 
 import numpy as np
 from . import derivatives as ddx

@@ -1,4 +1,4 @@
-"""Layers for sequential models"""
+"""Layers for sequential models."""
 
 from abc import ABC
 from abc import abstractmethod

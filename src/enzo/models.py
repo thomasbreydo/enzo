@@ -1,4 +1,4 @@
-"""Neural network models"""
+"""Neural network models."""
 
 from .exceptions import LayerBuildingError
 

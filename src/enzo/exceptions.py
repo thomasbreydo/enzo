@@ -1,8 +1,8 @@
-"""Errors and exceptions"""
+"""Errors and exceptions."""
 
 
 class BackBeforeForwardException(Exception):
-    """Raise when back-propagation is run before forward-propagation"""
+    """Raise when back-propagation is run before forward-propagation."""
 
 
 class LayerBuildingError(Exception):

@@ -1,3 +1,5 @@
+""""Derivative functions for activation functions."""
+
 import numpy as np
 
 

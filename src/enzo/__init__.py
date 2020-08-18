@@ -4,6 +4,7 @@ from . import layers
 from . import losses
 from . import exceptions
 from . import models
+from . import derivatives
 
 __version__ = "0.0.1.dev5"
 

@@ -1,6 +1,6 @@
 import pytest
-import enzo.activations as act
 import numpy as np
+import enzo.activations as act
 
 
 def test_positive_relu():
@@ -49,3 +49,8 @@ def test_softmax():
             ],
         ),
     )
+
+
+def test_activations_were_wrapped_with_derivatives():
+    for function in (act.relu, act.sigmoid, act.softmax, act.noactivation):
+        assert hasattr(function, "derivative")

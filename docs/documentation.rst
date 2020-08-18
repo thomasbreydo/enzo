@@ -16,6 +16,12 @@ Activation Functions
 .. automodule:: enzo.activations
     :members:
 
+Derivatives
+~~~~~~~~~~~
+
+.. automodule:: enzo.derivatives
+    :members:
+
 Exceptions
 ~~~~~~~~~~
 

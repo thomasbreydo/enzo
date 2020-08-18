@@ -1,8 +1,8 @@
 """Derivative functions for functions."""
 
 from .wrappers import with_derivative
-from .ddx_activations import ddx_noactivation
-from .ddx_activations import ddx_relu
-from .ddx_activations import ddx_sigmoid
-from .ddx_activations import ddx_softmax
-from .ddx_losses import ddx_crossentropy
+from .d_activations import d_noactivation
+from .d_activations import d_relu
+from .d_activations import d_sigmoid
+from .d_activations import d_softmax
+from .d_losses import d_crossentropy

@@ -1,5 +1,5 @@
 """Derivative functions for loss functions."""
 
 
-def ddx_crossentropy():
+def d_crossentropy():
     pass

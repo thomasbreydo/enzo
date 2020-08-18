@@ -3,7 +3,7 @@
 import numpy as np
 
 
-def ddx_noactivation(rows):
+def d_noactivation(rows):
     """The derivative of a f(x)=x activation (*noactivation*).
 
     Parameters
@@ -19,7 +19,7 @@ def ddx_noactivation(rows):
     return np.ones(rows.shape)
 
 
-def ddx_relu(rows):
+def d_relu(rows):
     r"""The derivative of the rectified linear unit (*relu*).
 
     Parameters
@@ -33,7 +33,7 @@ def ddx_relu(rows):
 
     Notes
     -----
-    :func:`ddx_relu` evaluated at 0 is 0 despite the fact that the true derivative of
+    :func:`d_relu` evaluated at 0 is 0 despite the fact that the true derivative of
     ReLU evaluated at 0 is undefined. This allows for a continuous derivative
     function, letting weights set to 0 to have a derivative.
 
@@ -43,7 +43,7 @@ def ddx_relu(rows):
     return rows > 0
 
 
-def ddx_sigmoid(rows):
+def d_sigmoid(rows):
     """The derivative of the sigmoid activation function.
 
     Parameters
@@ -60,12 +60,12 @@ def ddx_sigmoid(rows):
 
 
 # TODO
-def _ddx_softmax(row):
+def _d_softmax(row):
     return -np.exp(row) / row.sum() ** 2
 
 
 # TODO
-def ddx_softmax(rows):
+def d_softmax(rows):
     """The derivative of the softmax activation function.
 
     Parameters
@@ -78,4 +78,4 @@ def ddx_softmax(rows):
         The derivative evaluated at each row in `rows`.
     """
     rows = np.asarray(rows)
-    return np.apply_along_axis(_ddx_softmax, arr=rows, axis=1)
+    return np.apply_along_axis(_d_softmax, arr=rows, axis=1)

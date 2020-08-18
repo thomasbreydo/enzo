@@ -1,8 +1,14 @@
 """Activation functions"""
 
 import numpy as np
-from .derivatives import with_derivative
 from . import derivatives as ddx
+from .derivatives import with_derivative
+
+
+@with_derivative(ddx.ddx_noactivation)
+def noactivation(rows):
+    """Do nothing, return `rows`."""
+    return rows
 
 
 @with_derivative(ddx.ddx_relu)
@@ -27,12 +33,6 @@ def sigmoid(rows):
     """
     rows = np.asarray(rows)
     return 1 / (1 + np.exp(-rows))
-
-
-@with_derivative(ddx.ddx_noactivation)
-def noactivation(rows):
-    """Do nothing, return `rows`."""
-    return rows
 
 
 def _softmax(row):

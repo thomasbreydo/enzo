@@ -21,6 +21,13 @@ Derivatives
 
 .. automodule:: enzo.derivatives
     :members:
+    :imported-members:
+
+Losses
+~~~~~~
+
+.. automodule:: enzo.losses
+    :members:
 
 Exceptions
 ~~~~~~~~~~

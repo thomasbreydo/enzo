@@ -55,6 +55,7 @@ class DenseLayer(Layer):
             self.activation = activations.relu
         self.weights = None
         self.outputs = None
+        self._pre_activation_func = None
 
     @staticmethod
     def _append_column_of_ones(samples):
@@ -87,8 +88,8 @@ class DenseLayer(Layer):
             after forward propagation.
         """
         samples = DenseLayer._prepare_samples(samples)
-        pre_actiation_func = samples @ self.weights
-        self.outputs = self.activation(pre_actiation_func)
+        self._pre_activation_func = samples @ self.weights
+        self.outputs = self.activation(self._pre_activation_func)
         return self.outputs
 
     def build(self, input_length=None):

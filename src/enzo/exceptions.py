@@ -1,7 +1,7 @@
 """Errors and exceptions"""
 
 
-class BackPropagationBeforeForwardException(Exception):
+class BackBeforeForwardException(Exception):
     """Raise when back-propagation is run before forward-propagation"""
 
 

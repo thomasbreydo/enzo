@@ -14,8 +14,9 @@ class Model:
     """
 
     def __init__(self, layers):
-        self.layers = layers
-        self._build_layers()
+        self.layers = []
+        for layer in layers:
+            self.add_layer(layer)
 
     def forward(self, samples):
         """Return and store in `self.outputs` the activation matrix of this layer
@@ -33,18 +34,23 @@ class Model:
         """
         return self.layers[-1].outputs
 
-    def _build_layers(self):
-        self._build_first_layer()
-        for layer, previous_layer in self._iter_layers_and_previous():
-            layer.build(input_length=previous_layer.output_length)
-
-    def _build_first_layer(self):
+    def add_layer(self, layer):
         try:
-            self.layers[0].build()
+            input_length = self.layers[-1].output_length
+        except IndexError:  # adding first layer
+            self._add_first_layer(layer)
+        else:
+            layer.build(input_length=input_length)
+            self.layers.append(layer)
+
+    def _add_first_layer(self, layer):
+        try:
+            layer.build()
         except TypeError:
             raise LayerBuildingError(
                 "first layer must be initialized with an input length"
             )
+        self.layers.append(layer)
 
     def _iter_layers_and_previous(self):
         yield from zip(self.layers[1:], self.layers)

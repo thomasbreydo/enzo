@@ -24,4 +24,4 @@ def d_crossentropy(y_true, y_pred, epsilon=1e-12):
     :math:`\frac{y}{\min(\hat{y}, \epsilon)}`. (Note: :math:`\hat{y}` is any value in
     `y_pred` and :math:`y` is any value in `y_true`).
     """
-    return y_true / np.clip(y_pred, a_min=epsilon, a_max=None)
+    return -(y_true / np.clip(y_pred, a_min=epsilon, a_max=None))

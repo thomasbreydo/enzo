@@ -69,16 +69,15 @@ class DenseLayer(Layer):
 
     @staticmethod
     def _shape_samples(samples):
-        try:
-            ndim = samples.ndim
-        except AttributeError:
-            samples = np.array(samples)
-            ndim = samples.ndim
+        samples = np.asarray(samples)
+        ndim = samples.ndim
         if ndim == 1:
             return samples.reshape(1, len(samples))
         if ndim == 2:
             return samples
-        raise ValueError(f"Samples must be 1- or 2-dimensional (not {samples.ndim}-)")
+        raise ValueError(
+            f"Samples must be 1- or 2-dimensional (not {ndim}-dimensional)"
+        )
 
     @staticmethod
     def _prepare_samples(samples):

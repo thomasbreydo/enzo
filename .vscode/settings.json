@@ -1,6 +1,6 @@
 {
     "restructuredtext.confPath": "${workspaceFolder}/docs",
-    "python.pythonPath": "/Users/thomasbreydo/Desktop/Programming/Projects/enzo/venv/bin/python3",
+    "python.pythonPath": "venv/bin/python",
     "python.formatting.provider": "black",
     "python.linting.pylintArgs": ["--good-names=n,i"],
     "python.linting.enabled": true,

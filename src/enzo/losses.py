@@ -1,8 +1,11 @@
 """Loss functions."""
 
 import numpy as np
+from . import derivatives
+from .derivatives import with_derivative
 
 
+@with_derivative(derivatives.d_crossentropy)
 def crossentropy(y_true, y_pred, epsilon=1e-12):
     r"""Calculate the crossentropy loss of `y_true` with respect to `y_pred`.
 
@@ -23,4 +26,7 @@ def crossentropy(y_true, y_pred, epsilon=1e-12):
     `y_pred`).
     """
     by_row = -(y_true * np.log(np.clip(y_pred, a_min=epsilon, a_max=None)))
-    return by_row.sum(axis=1).mean()
+    try:
+        return by_row.sum(axis=1).mean()
+    except np.AxisError:
+        return by_row.sum(axis=0)

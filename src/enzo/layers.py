@@ -5,6 +5,7 @@ from abc import abstractmethod
 import numpy as np
 from . import activations
 from .exceptions import LayerBuildingError
+from . import activations
 
 
 class Layer(ABC):
@@ -108,3 +109,14 @@ class DenseLayer(Layer):
                 "input_length doesn't match input_length from initialization"
             )
         self.weights = np.random.rand(input_length + 1, self.n_units)
+
+
+class SoftmaxLayer(DenseLayer):
+    """Simple softmax-activated layer to follow a :class:`DenseLayer`."""
+
+    def __init__(self, n_units, input_length=None):
+        super().__init__(n_units, activations.noactivation, input_length)
+
+    def forward(self, samples):
+        self.outputs = activations.softmax(samples)
+        return self.outputs

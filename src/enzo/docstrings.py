@@ -17,7 +17,13 @@ def append_to_see_also(func, see_also_section):
     func : function
     see_also_section : str
     """
-    if "See Also" in func.__doc__:
-        func.__doc__ += see_also_section
+    full_see_also_section = f"\n\n    See Also\n    --------\n    {see_also_section}"
+    try:
+        see_also_present = "See Also" in func.__doc__
+    except TypeError:
+        func.__doc__ = full_see_also_section
     else:
-        func.__doc__ += f"\n\n    See Also\n    --------\n    {see_also_section}"
+        if see_also_present:
+            func.__doc__ += see_also_section
+        else:
+            func.__doc__ += full_see_also_section

@@ -23,4 +23,7 @@ def crossentropy(y_true, y_pred, epsilon=1e-12):
     `y_pred`).
     """
     by_row = -(y_true * np.log(np.clip(y_pred, a_min=epsilon, a_max=None)))
+    try:
     return by_row.sum(axis=1).mean()
+    except np.AxisError:
+        return by_row.sum(axis=0)

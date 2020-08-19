@@ -1,15 +1,15 @@
 import pytest
 import numpy as np
-from enzo import derivatives as ddx
+from enzo import derivatives
 
 
-def test_ddx_relu():
+def test_d_relu():
     np.testing.assert_allclose(
-        ddx.ddx_relu([[-4, 0.85], [0, 1]]), [[0, 1], [0, 1]],
+        derivatives.d_relu([[-4, 0.85], [0, 1]]), [[0, 1], [0, 1]],
     )
 
 
-def test_ddx_sigmoid():
+def test_d_sigmoid():
     rows = [
         [0.00484339, 0.95332232, -0.23471351, -0.23694437, -0.69553362],
         [0.55169639, -0.77593199, 2.1108949, -2.18967085, 0.4950178],
@@ -17,7 +17,7 @@ def test_ddx_sigmoid():
         [0.12974547, -1.64818585, 1.11788106, 0.67242286, -1.46779844],
     ]
     np.testing.assert_allclose(
-        ddx.ddx_sigmoid(rows),
+        derivatives.d_sigmoid(rows),
         [
             [0.24999853, 0.20081238, 0.24658822, 0.24652366, 0.22204524],
             [0.23190193, 0.21584796, 0.09636924, 0.09054505, 0.23528927],
@@ -27,17 +27,17 @@ def test_ddx_sigmoid():
     )
 
 
-def test_ddx_noactivation():
+def test_d_noactivation():
     rows = np.random.randn(4, 5)
-    np.testing.assert_allclose(ddx.ddx_noactivation(rows), np.ones((4, 5)))
+    np.testing.assert_allclose(derivatives.d_noactivation(rows), np.ones((4, 5)))
 
 
 # TODO
-# def test_ddx_softmax():
+# def test_d_softmax():
 #     rows = [
 #         [-0.47709506, -0.48558554, 1.20909449, 0.37906876, -0.11484995],
 #         [0.13120358, -0.98250757, 1.01841862, -1.34023556, -0.30454957],
 #         [-0.50465399, 0.56968592, 0.67665821, 1.26916208, -1.13190224],
 #         [-0.2910751, -1.2050252, 0.9046714, -0.27224021, -0.89717579],
 #     ]
-#     np.testing.assert_allclose(ddx.ddx_softmax(rows), [[]])
+#     np.testing.assert_allclose(d.d_softmax(rows), [[]])

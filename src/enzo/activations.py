@@ -1,11 +1,17 @@
-"""Activation functions"""
+"""Activation functions."""
 
 import numpy as np
+from . import derivatives
 from .derivatives import with_derivative
-from . import derivatives as ddx
 
 
-@with_derivative(ddx.ddx_relu)
+@with_derivative(derivatives.d_noactivation)
+def noactivation(rows):
+    """Do nothing, return `rows`."""
+    return rows
+
+
+@with_derivative(derivatives.d_relu)
 def relu(rows):
     """Apply max(0, n) to each n in `rows`.
 
@@ -17,7 +23,7 @@ def relu(rows):
     return rows * (rows > 0)
 
 
-@with_derivative(ddx.ddx_sigmoid)
+@with_derivative(derivatives.d_sigmoid)
 def sigmoid(rows):
     """Apply 1 / (1 + e ^ -n) to each n in `rows`.
 
@@ -29,18 +35,12 @@ def sigmoid(rows):
     return 1 / (1 + np.exp(-rows))
 
 
-@with_derivative(ddx.ddx_noactivation)
-def noactivation(rows):
-    """Do nothing, return `rows`."""
-    return rows
-
-
 def _softmax(row):
     raised_to_the_e = np.exp(row)
     return raised_to_the_e / sum(raised_to_the_e)
 
 
-@with_derivative(ddx.ddx_softmax)
+@with_derivative(derivatives.d_softmax)
 def softmax(rows):
     """Perform softmax scaling for each row in `rows`."""
     rows = np.asarray(rows)

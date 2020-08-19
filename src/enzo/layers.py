@@ -1,10 +1,11 @@
-"""Layers for sequential models"""
+"""Layers for sequential models."""
 
 from abc import ABC
 from abc import abstractmethod
 import numpy as np
 from . import activations
 from .exceptions import LayerBuildingError
+from . import activations
 
 
 class Layer(ABC):
@@ -55,6 +56,8 @@ class DenseLayer(Layer):
             self.activation = activations.relu
         self.weights = None
         self.outputs = None
+        self._pre_activation_func = None
+        self.samples = None
 
     @staticmethod
     def _append_column_of_ones(samples):
@@ -86,9 +89,9 @@ class DenseLayer(Layer):
         """Return and store in `self.outputs` the activation matrix of this layer
             after forward propagation.
         """
-        samples = DenseLayer._prepare_samples(samples)
-        pre_actiation_func = samples @ self.weights
-        self.outputs = self.activation(pre_actiation_func)
+        self.samples = DenseLayer._prepare_samples(samples)
+        self._pre_activation_func = self.samples @ self.weights
+        self.outputs = self.activation(self._pre_activation_func)
         return self.outputs
 
     def build(self, input_length=None):
@@ -106,3 +109,14 @@ class DenseLayer(Layer):
                 "input_length doesn't match input_length from initialization"
             )
         self.weights = np.random.rand(input_length + 1, self.n_units)
+
+
+class SoftmaxLayer(DenseLayer):
+    """Simple softmax-activated layer to follow a :class:`DenseLayer`."""
+
+    def __init__(self, n_units, input_length=None):
+        super().__init__(n_units, activations.noactivation, input_length)
+
+    def forward(self, samples):
+        self.outputs = activations.softmax(samples)
+        return self.outputs

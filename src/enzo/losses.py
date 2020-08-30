@@ -12,7 +12,7 @@ def crossentropy(y_true, y_pred, epsilon=1e-12):
     Parameters
     ----------
     y_true : array_like
-        One-hot encoded ture labels.
+        One-hot encoded true labels.
     y_pred : array_like
         Model predictions.
     epsilon : float, optional

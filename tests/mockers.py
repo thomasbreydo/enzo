@@ -1,5 +1,6 @@
 import pytest
 import numpy as np
+import copy
 
 
 class SetOnceDict:
@@ -21,6 +22,6 @@ MOCKED_RANDOM_WEIGHTS = SetOnceDict()
 @pytest.fixture
 def mock_np_random_randn(monkeypatch):
     def new_randn(*args):
-        return MOCKED_RANDOM_WEIGHTS[args].copy()
+        return copy.deepcopy(MOCKED_RANDOM_WEIGHTS[args])
 
     monkeypatch.setattr(np.random, "randn", new_randn)

@@ -1,0 +1,5 @@
+black
+pylint
+# pyenchant
+wheel
+numpy==1.19.1

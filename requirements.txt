@@ -1,8 +1,0 @@
--e .
-pytest
-pytest-mock
-black
-pylint
-sphinx_rtd_theme
-pyenchant
-wheel

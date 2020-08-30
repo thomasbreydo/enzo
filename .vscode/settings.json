@@ -1,8 +1,7 @@
 {
     "restructuredtext.confPath": "${workspaceFolder}/docs",
-    "python.pythonPath": "venv/bin/python",
     "python.formatting.provider": "black",
-    "python.linting.pylintArgs": ["--good-names=n,i"],
+    "python.linting.pylintArgs": ["--good-names=n,i,e"],
     "python.linting.enabled": true,
     "python.linting.pylintEnabled": true,
     "python.testing.unittestEnabled": false,

@@ -1,4 +1,4 @@
-enzo
+enzo (in progress)
 ====
 .. image:: https://travis-ci.com/thomasbreydo/enzo.svg?branch=master
     :target: https://travis-ci.com/thomasbreydo/enzo

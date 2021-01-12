@@ -19,3 +19,4 @@ Why in Python?
 - Python is easy and quick to use, meaning that the time I spend coding will mostly be devoted to actually coding the network.
 
 - More importantly, Python is easy to understand, meaning the code can serve as a learning resource for those who would like a better understanding of how neural networks work.
+
